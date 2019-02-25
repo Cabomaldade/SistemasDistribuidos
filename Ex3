@@ -1,0 +1,51 @@
+try {
+			Socket s = new Socket("localhost", 2001);
+
+			DataOutputStream saida = new DataOutputStream(s.getOutputStream());
+			DataInputStream entrada = new DataInputStream(s.getInputStream());
+                        
+                        String linha;
+                        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+
+			while (true) {
+                            
+                            System.out.println("> ");
+                            linha = teclado.readLine();
+                            saida.writeUTF(linha);
+                            linha  = entrada.readUTF();
+                            
+                            if (linha.equalsIgnoreCase("")){
+                                System.out.println("Conexão encerrada!");
+                                break;
+                            }
+                            System.out.println(linha);
+                        }
+                        
+			s.close();
+                        
+		} catch (java.net.ConnectException e) {
+			System.out.println(e.getMessage());
+		}
+
+		catch (IOException e) {
+			
+			System.out.println(e.getMessage());
+		}
+    
+    
+    
+    servidor 
+    
+    ServerSocket s = new ServerSocket (2001);
+            
+		try {
+                    while (true) {
+                        
+                        System.out.println("Esperando conectar...");
+                        Socket conexao = s.accept();
+                        System.out.println("Conectou");
+                        DataInputStream entrada = new DataI
+                                
+                        
+                        
+                    }
